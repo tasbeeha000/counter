@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: linear-gradient(
+          166deg,
+          rgba(36, 0, 1, 1) 0%,
+          rgba(76, 9, 121, 1) 31%,
+          rgba(35, 9, 121, 1) 65%,
+          rgba(31, 9, 121, 1) 84%
+        );
+        color: white;
+        font-family: cursive;
+      }
+      h1 {
+        font-size: 50px;
+      }
+      input {
+        padding: 10px 70px;
+        width: 100%;
+        text-align: center;
+        max-width: 300px;
+        font-family: cursive;
+      }
+
+      button {
+        color: rgb(255, 255, 255);
+        background-color: transparent;
+        font-size: 15px;
+        border: 2px solid white;
+        padding: 10px 20px;
+      }
+
+      .display {
+        display: none;
+      }
+      .show {
+        display: block;
+      }
+      .main-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        right: 30%;
+        bottom: 50%;
+      }
+      .alert-section {
+        background-color: brown;
+        padding: 10px 20px;
+        color: 20px;
+      }
+      .js-output {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main-section">
+        <h1>Pass a message</h1>
+        <input
+          class="InputValue"
+          type="text"
+          placeholder="Enter your Message"
+        />
+
+        <p class="alert-section display">please type something</p>
+
+        <p class="js-output"></p>
+
+        <button class="submit-button">Submit</button>
+      </div>
+    </div>
+
+    <script>
+      let buttonValue = document.querySelector(".submit-button");
+      buttonValue.addEventListener("click", Answer);
+
+      function Answer() {
+        function addIT() {
+          const list = alert.classList;
+          list.add("show");
+        }
+        function removeIT() {
+          const list = alert.classList;
+          list.remove("show");
+        }
+
+        let alert = document.querySelector(".alert-section");
+        let inputValue = document.querySelector(".InputValue");
+        let inputValueText = inputValue.value;
+        let output = document.querySelector(".js-output");
+        if (inputValueText == "") {
+          addIT();
+          setInterval(() => {
+            removeIT();
+          }, 4000);
+        } else {
+          output.innerHTML = inputValueText;
+        }
+      }
+    </script>
+  </body>
+</html>
